@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/formulario.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <title>Reserve</title>
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+            <div class="logo">
+                <img src="images/Logo.png" alt="Logo Eclipse" />
+
+                <div class="nome">
+                    <h1>Eclipse</h1>
+                    <p>Pousada</p>
+                </div>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="galeria.html">Experiências</a></li>
+                <li><a href="acomodações.html">Acomodações</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+
+            <a href="#" class="reservar"> Reservar </a>
+        </nav>
+    </header>
+    <main class="container" id="reserva">
+
+        <section class="introducao">
+            <span class="subtitulo">CADASTRO</span>
+
+            <h1>Reserve o seu momento<br>
+                de <span>Pausa.</span>
+            </h1>
+
+            <p>Pronto para uma escapada? Estamos à sua espera.</p>
+
+            <p>
+                Preencha o formulário abaixo para realizar uma simulação
+                de hospedagem. Escolha sua suíte, as diárias e os
+                adicionais para gerar seu orçamento.
+            </p>
+
+            <div class="contato">
+                <p>(11) 99999-9999</p>
+                <p>hello@eclipsepousada.com</p>
+                <p>Rua dos Bobos, 00 - São Paulo - SP</p>
+            </div>
+        </section>
+
+        <section class="formulario-area">
+
+            <form id="form-reserva">
+
+                <h2>Faça seu orçamento</h2>
+                <p class="descricao">Preencha seus dados abaixo</p>
+
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="data">Data de hospedagem (check-in)</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <div class="campo">
+                    <label>Gênero</label>
+
+                    <div class="opcoes">
+                        <label>
+                            <input type="radio" name="genero" value="Masculino" required>
+                            Masculino
+                        </label>
+
+                        <label>
+                            <input type="radio" name="genero" value="Feminino">
+                            Feminino
+                        </label>
+
+                        <label>
+                            <input type="radio" name="genero" value="Outro">
+                            Outro
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="suite">Suíte escolhida</label>
+
+                    <select id="suite" name="suite" required>
+                        <option value="" disabled selected>Selecione uma suíte</option>
+                        <option value="220">Suíte Standard — R$ 220/noite</option>
+                        <option value="320">Suíte Deluxe — R$ 320/noite</option>
+                        <option value="450">Suíte Master — R$ 450/noite</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="diarias">Número de diárias</label>
+                    <input type="number" id="diarias" name="diarias" min="1" max="30" value="1" required>
+                </div>
+
+                <div class="campo">
+                    <label>Adicionais</label>
+
+                    <div class="adicionais">
+
+                        <label>
+                            <input type="checkbox" name="adicional" value="35">
+                            Café da manhã (R$ 35/diária)
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="adicional" value="55">
+                            Almoço (R$ 55/diária)
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="adicional" value="65">
+                            Jantar (R$ 65/diária)
+                        </label>
+
+                    </div>
+                </div>
+
+                <button type="button" onclick="visualizarDados()" class="btn-orcamento">
+                    Gerar orçamento
+                </button>
+                
+                <div id="resultado">
+                    <h2>Resultado do orçamento</h2>
+
+                    <p id="pNome"></p>
+                    <p id="pEmail"></p>
+                    <p id="pGenero"></p>
+                    <p id="pSuite"></p>
+                    <p id="pAdicional"></p>
+                    <p id="pTotal"></p>
+                </div>
+
+            </form>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <h2>Eclipse</h2>
+            <p>Pousada</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Início</a>
+            <a href="#">A pousada</a>
+            <a href="#">Acomodações</a>
+            <a href="#">Contato</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Eclipse Pousada todos os direitos de David o gostoso</p>
+        </div>
+    </footer>
+    <nav class="menu2">
+        <a href="index.html" class="ativo">
+            <i class="fa-solid fa-house"></i>
+            <span>HOME</span>
+        </a>
+
+        <a href="galeria.html">
+            <i class="fa-solid fa-hotel"></i>
+            <span>EXPERIÊNCIAS</span>
+        </a>
+
+        <a href="acomodações.html">
+            <i class="fa-solid fa-bed"></i>
+            <span>ACOMODAÇÕES</span>
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-phone"></i>
+            <span>CONTATO</span>
+        </a>
+
+        <a href="formulario.html">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>RESERVAR</span>
+        </a>
+    </nav>
+</body>
+<script>
+  
+function visualizarDados() {
+    var nome = document.getElementById("nome").value;
+    var email = document.getElementById("email").value;
+    var genero = document.querySelector('input[name="genero"]:checked');
+    var generoSelecionado = genero ? genero.value : "Não selecionado";
+    var suite = document.getElementById("suite");
+    var nomeSuite = suite.options[suite.selectedIndex].text;
+    var precoSuite = Number(suite.value);
+    var diarias = Number(document.getElementById("diarias").value);
+    var adicionais = document.querySelectorAll('input[name="adicional"]:checked');
+    var listaAdicionais = []; //(cria uma lista vazia para guardar os adicionais que o cliente escolher.   (não é IA. so to escrevendo pra não esquecer)
+    var valorAdicionais = 0;
+    adicionais.forEach(function(item) {
+
+        listaAdicionais.push(item.parentElement.textContent.trim());
+
+        valorAdicionais += Number(item.value);
+    });
+    var total = (precoSuite + valorAdicionais) * diarias;
+    document.getElementById("pNome").innerHTML = "Nome: " + nome;
+
+    document.getElementById("pEmail").innerHTML = "E-mail: " + email;
+
+    document.getElementById("pGenero").innerHTML = "Gênero: " + generoSelecionado;
+
+    document.getElementById("pSuite").innerHTML = "Suíte: " + nomeSuite;
+
+    document.getElementById("pAdicional").innerHTML =
+        "Adicionais: " + (listaAdicionais.length > 0 ? listaAdicionais.join(", ") : "Nenhum");
+
+    document.getElementById("pTotal").innerHTML =
+        "Total: R$ " + total.toFixed(2).replace(".", ",");
+}
+
+</script>
+
+</html>
